@@ -25,3 +25,18 @@ function dys() {
     }
 }
 dys()
+
+function daltonism() {
+    let elements = document.querySelectorAll("*");
+
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i], elements[i].tagName)
+        if (elements[i].tagName === "IMG") {
+            elements[i].style = "filter: grayscale(100%);"
+        }
+        else {
+            elements[i].style.color = "#cdcd0d"
+        }
+    }
+}
+daltonism()
