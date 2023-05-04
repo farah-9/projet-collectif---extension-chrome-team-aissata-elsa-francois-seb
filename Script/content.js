@@ -40,3 +40,19 @@ function daltonism() {
     }
 }
 daltonism()
+
+function unlovedLetters() {
+    // Sélectionne tous les éléments de la page
+    let paragraphs = document.querySelectorAll("p");
+    // Parcourt tous les éléments et ajoute un style CSS pour mettre en gras les lettres b, p, q et d
+    for (let i = 0; i < paragraphs.length; i++) {
+        let text = paragraphs[i].textContent;
+        let regex = /[bpqd]/gi;
+        if (regex.test(text)) {
+            paragraphs[i].innerHTML = text.replace(regex, '<span style="font-weight: bold;">$&</span>');
+        }
+    }
+}
+setTimeout(() => {
+    unlovedLetters()
+}, 1000);
