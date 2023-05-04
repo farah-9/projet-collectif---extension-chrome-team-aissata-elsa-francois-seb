@@ -1,0 +1,106 @@
+/* Police */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Couleurs */
+  body {
+    background-color: #f9f9f9;
+    color: #333333;
+  }
+  
+  /* Balises sémantiques */
+  header, nav, main, section, article, aside, footer {
+    display: block;
+  }
+  
+  /* Images et icônes */
+  img, svg {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Accessibilité */
+  [aria-hidden="true"] {
+    display: none;
+  }
+  
+  /* Contraste de couleurs */
+  h2, label, button {
+    color: #333333;
+  }
+  
+  button {
+    background-color: #0077cc;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover, button:focus {
+    background-color: #005fa3;
+  }
+  
+  /* Styles pour le popup */
+  .popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .popup-content h2 {
+    font-size: 24px;
+    margin-top: 0;
+  }
+  
+  .popup-content form {
+    margin-top: 20px;
+  }
+  
+  .popup-content .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .popup-content label {
+    margin-left: 10px;
+  }
+  
+  .popup-content .button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .popup-content #submit-btn {
+    margin-right: 10px;
+  }
+  
+  .popup-content #cancel-btn {
+    color: #0077cc;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }

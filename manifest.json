@@ -1,28 +1,22 @@
 {
-    "name": "Name Extension",
+    "name": "Web4All",
     "version": "0.0.1",
     "manifest_version": 3,
-    "description": "Une extension qui sert à...",
-    "browser_action": {
-        "default_icon": {
-            "19": "icons/19x19.png",
-            "38": "icons/38x38.png"
-        },
-        "default_title": "That's the tool tip",
-        "default_popup": "popup.html"
+    "description": "Une extension axée sur l'accessibilité",
+    "icons": {
+        "16": "icons/16x16.png",
+        "32": "icons/32x32.png",
+        "48": "icons/48x48.png",
+        "128": "icons/128x128.png"
+    },
+    "action": {
+        "default_popup": "Page/popup.html"
     },
     "content_scripts": [
         {
-            "js": ["scripts/content.js"],
-            "matches": [
-                "https://developer.chrome.com/docs/extensions/*",
-                "https://developer.chrome.com/docs/webstore/*"
-            ]
+            "js": ["Content/content.js"],
+            "matches": ["<all_urls>"]   
         }
-    ],
-    "background": {
-        "scripts": ["background.js"],
-        "persistent": false/true
-    }
+    ]
 }
 
