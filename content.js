@@ -27,7 +27,6 @@ function dys() {
 function daltonism() {
     let elements = document.querySelectorAll("*");
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i], elements[i].tagName);
         if (elements[i].tagName === "IMG") {
             elements[i].style = "filter: grayscale(100%);";
         }
@@ -128,25 +127,27 @@ function visibility() {
 
 chrome.storage.onChanged.addListener(() => {
     chrome.storage.local.get(["dyslexie"]).then((result) => {
-        //console.log(result.toggle)
         if (result.dyslexie == true) {
-            //console.log("ça marche")
+            console.log("Dys ça marche")
             dys();
         }
     });
     chrome.storage.local.get(["dalto"]).then((result) => {
         if (result.dalto == true) {
-            daltonism()
+            console.log("dalto ça marche")
+            daltonism();
         }
     })
     chrome.storage.local.get(["bdpq"]).then((result) => {
         if (result.bdpq == true) {
-            unlovedLetters()
+            console.log("Unloved ça marche")
+            unlovedLetters();
         }
     })
     chrome.storage.local.get(["grosMots"]).then((result) => {
         if (result.grosMots == true) {
-            grosMots()
+            console.log("grosMots ça marche")
+            grosMots();
         }
     })
 })
