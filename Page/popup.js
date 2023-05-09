@@ -25,12 +25,12 @@ form.addEventListener("submit", () => {
   if (dalto.checked) {
     setTimeout(() => {
       daltonism();
-    }, 1000)
+    }, 1000);
   };
   if (dyslexie.checked) {
     setTimeout(() => {
       dys();
-    }, 1000)
+    }, 1000);
   }
   // if(bdpq.checked) {};
   // if(malVoyant.checked) { }

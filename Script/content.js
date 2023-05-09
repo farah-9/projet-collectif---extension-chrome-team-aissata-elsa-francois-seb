@@ -99,83 +99,47 @@ setTimeout(() => {
 }, 1000);
 
 
-
 function visibility() {
     let elements = document.querySelectorAll("*");
-
     for (let i = 0; i < elements.length; i++) {
         console.log(elements[i].tagName);
         elements[i].style.fontFamily = "Arial";
         elements[i].style.fontSize = "20px";
         elements[i].style.backgroundColor = "white"
         elements[i].style.color = "#000000"
-
         if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
             elements[i].style.fontSize = "40px";
         }
-
         if (elements[i].tagName === "SPAN") {
             elements[i].style.fontSize = "22px";
         }
-
         if (elements[i].tagName === "LI") {
             elements[i].style.fontSize = "28px";
         }
-
         if (elements[i].classList.length > 0) {
             elements[i].style.fontSize = "22px";
         }
     }
-    let elem = document.querySelectorAll("[id]");
 
+    let elem = document.querySelectorAll("[id]");
     for (let i = 0; i < elem.length; i++) {
         elem[i].style.fontSize = "28px";
     }
 
     let attributes = document.querySelectorAll("a[href]");
-
     for (let i = 0; i < attributes.length; i++) {
         attributes[i].style.fontSize = "25px";
     }
 
     let allParagraph = document.querySelectorAll("p");
-
     for (let i = 0; i < allParagraph.length; i++) {
         allParagraph[i].style.fontSize = "25px";
     }
 
-
     let links = document.querySelectorAll("a");
-
     for (let i = 0; i < links.length; i++) {
         links[i].style.color = "blue";
         links[i].style.textDecoration = "underline";
     }
-
 }
 visibility()
-
-document.addEventListener('keydown', function (event) {
-    if (event.defaultPrevented) {
-        return; // La touche a déjà été traitée
-    }
-
-    switch (event.key) {
-        case 'ArrowDown':
-            // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers le bas
-            break;
-        case 'ArrowUp':
-            // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers le haut
-            break;
-        case 'ArrowLeft':
-            // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers la gauche
-            break;
-        case 'ArrowRight':
-            // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers la droite
-            break;
-        default:
-            return; // Ne rien faire si la touche n'est pas utilisée pour la navigation
-    }
-
-    event.preventDefault();
-}, true);
