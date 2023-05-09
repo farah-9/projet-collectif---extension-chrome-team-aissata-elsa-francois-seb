@@ -9,9 +9,11 @@
         "48": "icons/48x48.png",
         "128": "icons/128x128.png"
     },
+
     "action": {
         "default_popup": "popup.html"
     },
+    
     "content_scripts": [
         {
             "js": [
