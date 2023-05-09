@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEB_4_ALL</title>
-    <link href="./popup.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEB_4_ALL</title>
+  <link href="./popup.css" rel="stylesheet">
 
 </head>
+
 <body>
-    <div id="popup" class="popup">
+  <div id="popup" class="popup">
     <div class="popup-content">
-    <h2>Options d'inclusivité by Web_4_All</h2>
-    <form id="options-form">
+      <h2>Options d'inclusivité by Web_4_All</h2>
+      <form id="options-form">
 
-      <div class="option">
-        <input type="checkbox" id="grosMots" name="grosMots">
-        <label for="grosMots">Sans "Gros mots"</label>
-      </div>
+        <div class="option">
+          <input type="checkbox" id="grosMots" name="grosMots">
+          <label for="grosMots">Sans "Gros mots"</label>
+        </div>
 
-      <div class="option">
-        <input type="checkbox" id="dalto" name="dalto">
-        <label for="dalto1">Daltonisme</label>
+        <div class="option">
+          <input type="checkbox" id="dalto" name="dalto">
+          <label for="dalto1">Daltonisme</label>
+        </div>
+
+        <div class="option">
+          <input type="checkbox" id="dyslexie1" name="dyslexie1">
+          <label for="dyslexie1">Dyslexie (Type 1)</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="dyslexie2" name="dyslexie2">
+          <label for="dyslexie2">Dyslexie (Type 2)</label>
+        </div>
+        <div class="option">
+          <input type="checkbox" id="malVoyant" name="malVoyant">
+          <label for="malVoyant">Mal Voyant</label>
+        </div>
+        <div class="button-container">
+          <button type="submit" id="submit-btn">Valider</button>
+        </div>
+        <div class="button-container">
+          <button type="cancel" id="cancel-btn">Annuler</button>
+        </div>
+      </form>
     </div>
-      
-      <div class="option">
-        <input type="checkbox" id="dyslexie1" name="dyslexie1">
-        <label for="dyslexie1">Dyslexie (Type 1)</label>
-      </div>
-      <div class="option">
-        <input type="checkbox" id="dyslexie2" name="dyslexie2">
-        <label for="dyslexie2">Dyslexie (Type 2)</label>
-      </div>
-      <div class="option">
-        <input type="checkbox" id="malVoyant" name="malVoyant">
-        <label for="malVoyant">Mal Voyant</label>
-      </div>
-      <div class="button-container">
-        <button type="submit" id="submit-btn">Valider</button>
-      </div>
-      <div class="button-container">
-        <button type="cancel" id="cancel-btn">Annuler</button>
-      </div>
-    </form>
   </div>
-</div>
 </body>
 <script src="./page.js"></script>
+
 </html>
