@@ -24,11 +24,6 @@ function dys() {
     }
 }
 
-/* setTimeout(() => {
-    dys();
-}, 1000); */
-
-
 function daltonism() {
     let elements = document.querySelectorAll("*");
     for (let i = 0; i < elements.length; i++) {
@@ -42,10 +37,6 @@ function daltonism() {
     }
 }
 
-/* setTimeout(() => {
-    daltonism()
-}, 1000); */
-
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
     let paragraphs = document.querySelectorAll("p");
@@ -58,9 +49,6 @@ function unlovedLetters() {
         }
     }
 }
-setTimeout(() => {
-    unlovedLetters()
-}, 1000);
 
 function grosMots() {
     // La liste de mots à remplacer
@@ -93,10 +81,6 @@ function grosMots() {
         }
     }
 }
-
-/* setTimeout(() => {
-    grosMots()
-}, 1000); */
 
 function visibility() {
     let elements = document.querySelectorAll("*");
@@ -148,12 +132,6 @@ chrome.storage.onChanged.addListener(() => {
         if (result.dyslexie == true) {
             //console.log("ça marche")
             dys();
-            //     createLoupe();
-            //     suitsouris(evenement);
-            // } else {
-            //     //console.log("ça marche aussi");
-            //     noContrast();
-            //     deleteLoupe();
         }
     });
     chrome.storage.local.get(["dalto"]).then((result) => {
