@@ -5,7 +5,7 @@ const cancelBtn = document.getElementById("cancel-btn");
 const grosMots = document.querySelector('#grosMots');
 const dalto = document.querySelector('#dalto');
 const dyslexie = document.querySelector('#dyslexie');
-const bdpq= document.querySelector('#bdpq');
+const bdpq = document.querySelector('#bdpq');
 const malVoyant = document.querySelector('#malVoyant');
 
 // Masque la pop-up lorsque l'utilisateur clique sur le bouton "Valider"
@@ -22,15 +22,16 @@ cancelBtn.addEventListener("click", () => {
 //Lance les options cochées après validation
 form.addEventListener("submit", () => {
   // if(grosMots.checked){};
-  if(dalto.checked){
-      setTimeout(() => {
+  if (dalto.checked) {
+    setTimeout(() => {
       daltonism();
     }, 1000)
   };
-  if(dyslexie.checked) {
-      setTimeout(() => {
+  if (dyslexie.checked) {
+    setTimeout(() => {
       dys();
-    }, 1000)}
+    }, 1000)
+  }
   // if(bdpq.checked) {};
   // if(malVoyant.checked) { }
-  })
+})
