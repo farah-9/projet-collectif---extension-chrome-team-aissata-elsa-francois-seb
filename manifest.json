@@ -14,12 +14,10 @@
     },
     "content_scripts": [
         {
-            "js": [
-                "Script/content.js"
-            ],
-            "matches": [
-                "<all_urls>"
-            ]
+            "js": ["Content/content.js"],
+            "matches": ["<all_urls>"]   
         }
-    ]
+    ],
+    "permissions":["tabs"]
 }
+
