@@ -1,9 +1,8 @@
 function dys() {
     // Sélectionne tous les éléments de la page
-    let elements = document.querySelectorAll("*, h1, h2, h3, h4, h5, h6");
+    let elements = document.getElementsByTagName('*');
     // Parcourt tous les éléments et applique un style
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i].tagName);
         elements[i].style.fontFamily = "Arial";
         elements[i].style.color = "#2E2E2E";
         elements[i].style.backgroundColor = "#FFFFCC"
@@ -24,22 +23,33 @@ function dys() {
         }
     }
 }
-//dys()
+
+setTimeout(() => {
+    dys();
+}, 1000);
+
+
+setTimeout(() => {
+    dys2();
+}, 1000);
+
 
 function daltonism() {
     let elements = document.querySelectorAll("*");
-
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i], elements[i].tagName)
+        console.log(elements[i], elements[i].tagName);
         if (elements[i].tagName === "IMG") {
-            elements[i].style = "filter: grayscale(100%);"
+            elements[i].style = "filter: grayscale(100%);";
         }
         else {
-            elements[i].style.color = "#cdcd0d"
+            elements[i].style.color = "#cdcd0d";
         }
     }
 }
-//daltonism()
+
+/* setTimeout(() => {
+    daltonism()
+}, 1000); */
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
@@ -53,6 +63,6 @@ function unlovedLetters() {
         }
     }
 }
-setTimeout(() => {
+/* setTimeout(() => {
     unlovedLetters()
-}, 1000);
+}, 1000); */
