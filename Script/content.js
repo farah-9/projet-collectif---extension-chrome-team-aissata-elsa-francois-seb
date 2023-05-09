@@ -61,6 +61,7 @@ function unlovedLetters() {
 /* setTimeout(() => {
     unlovedLetters()
 }, 1000); */
+
 function grosMots() {
     // La liste de mots à remplacer
     var words = ["Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête", "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce", "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer", "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage", "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette", "tapette", "tebé", "ta race"];
@@ -93,4 +94,7 @@ function grosMots() {
     }
 }
 
-function grosMots()
+/* setTimeout(() => {
+    grosMots()
+}, 1000); */
+
