@@ -24,7 +24,7 @@ function dys() {
         }
     }
 }
-dys()
+//dys()
 
 function daltonism() {
     let elements = document.querySelectorAll("*");
@@ -39,7 +39,7 @@ function daltonism() {
         }
     }
 }
-daltonism()
+//daltonism()
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
