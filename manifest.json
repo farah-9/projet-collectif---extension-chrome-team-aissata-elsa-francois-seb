@@ -10,20 +10,28 @@
         "128": "icons/128x128.png"
     },
     "action": {
-        "default_popup": "Page/popup.html"
+        "default_popup": "popup.html"
     },
     "content_scripts": [
         {
             "js": [
-                "Script/content.js"
+                "content.js"
             ],
             "matches": [
                 "<all_urls>"
             ]
         }
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "permissions": [
-        "tabs"
+        "tabs",
+        "scripting",
+        "storage"
+    ],
+    "host_permissions" :[
+        "<all_urls>"
     ],
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self';"

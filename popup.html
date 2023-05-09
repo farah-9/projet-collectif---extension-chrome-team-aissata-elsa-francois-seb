@@ -5,9 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  
   <link rel="stylesheet" href="./popup.css">
-  <script src="Script/content.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+
+  <script src="./popup.js" defer></script>
+  
+  <title>Extension Web-4-All</title>
 </head>
 
 <body>
@@ -17,33 +23,33 @@
       <form id="options-form">
 
         <div class="option">
-          <input type="checkbox" id="grosMots" name="grosMots">
+          <input type="checkbox" id="grosMots" name="grosMots" class="grosMots">
           <label for="grosMots">Sans "Gros mots"</label>
         </div>
 
         <div class="option">
-          <input type="checkbox" id="dalto" name="dalto">
+          <input type="checkbox" id="dalto" name="dalto" class="dalto">
           <label for="dalto">Daltonisme</label>
         </div>
 
         <div class="option">
-          <input type="checkbox" id="dyslexie" name="dyslexie">
+          <input type="checkbox" id="dyslexie" name="dyslexie" class="dyslexie">
           <label for="dyslexie">Dyslexie</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="bdpq" name="bdpq">
+          <input type="checkbox" id="bdpq" name="bdpq" class="bdpq">
           <label for="bdpq">BDPQ</label>
         </div>
         <div class="option">
-          <input type="checkbox" id="malVoyant" name="malVoyant">
+          <input type="checkbox" id="malVoyant" name="malVoyant" class="malVoyant">
           <label for="malVoyant">Mal Voyant</label>
         </div>
-        <div class="button-container">
+        <!-- <div class="button-container">
           <button type="submit" id="submit-btn">Valider</button>
         </div>
         <div class="button-container">
           <button type="cancel" id="cancel-btn">Annuler</button>
-        </div>
+        </div> -->
       </form>
     </div>
   </div>
