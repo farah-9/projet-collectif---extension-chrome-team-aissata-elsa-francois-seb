@@ -58,9 +58,9 @@ function unlovedLetters() {
         }
     }
 }
-/* setTimeout(() => {
+setTimeout(() => {
     unlovedLetters()
-}, 1000); */
+}, 1000);
 
 function grosMots() {
     // La liste de mots à remplacer
@@ -142,34 +142,32 @@ function visibility() {
     }
 }
 
-
-
 chrome.storage.onChanged.addListener(() => {
-    chrome.storage.local.get(["dyslexie"]).then ((result) => {
+    chrome.storage.local.get(["dyslexie"]).then((result) => {
         //console.log(result.toggle)
-        if (result.dyslexie == true){
+        if (result.dyslexie == true) {
             //console.log("ça marche")
             dys();
-        //     createLoupe();
-        //     suitsouris(evenement);
-        // } else {
-        //     //console.log("ça marche aussi");
-        //     noContrast();
-        //     deleteLoupe();
+            //     createLoupe();
+            //     suitsouris(evenement);
+            // } else {
+            //     //console.log("ça marche aussi");
+            //     noContrast();
+            //     deleteLoupe();
         }
     });
-    chrome.storage.local.get(["dalto"]).then ((result) => {
-        if (result.dalto == true){
+    chrome.storage.local.get(["dalto"]).then((result) => {
+        if (result.dalto == true) {
             daltonism()
         }
     })
-    chrome.storage.local.get(["bdpq"]).then ((result) => {
-        if (result.bdpq == true){
+    chrome.storage.local.get(["bdpq"]).then((result) => {
+        if (result.bdpq == true) {
             unlovedLetters()
         }
     })
-    chrome.storage.local.get(["grosMots"]).then ((result) => {
-        if (result.grosMots == true){
+    chrome.storage.local.get(["grosMots"]).then((result) => {
+        if (result.grosMots == true) {
             grosMots()
         }
     })
