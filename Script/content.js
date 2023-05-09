@@ -24,14 +24,9 @@ function dys() {
     }
 }
 
-setTimeout(() => {
+/* setTimeout(() => {
     dys();
-}, 1000);
-
-
-setTimeout(() => {
-    dys2();
-}, 1000);
+}, 1000); */
 
 
 function daltonism() {
