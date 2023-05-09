@@ -61,3 +61,36 @@ function unlovedLetters() {
 /* setTimeout(() => {
     unlovedLetters()
 }, 1000); */
+function grosMots() {
+    // La liste de mots à remplacer
+    var words = ["Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête", "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce", "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer", "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage", "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette", "tapette", "tebé", "ta race"];
+
+    // Le mot de remplacement
+    var replacement = "Oups gros mot";
+
+    // Récupérer tous les éléments HTML dans la page
+    var elements = document.getElementsByTagName("*");
+
+    // Parcourir chaque élément et son texte pour trouver les mots à remplacer
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        for (var j = 0; j < element.childNodes.length; j++) {
+            var node = element.childNodes[j];
+            // Vérifier si le nœud est un élément de texte
+            if (node.nodeType === 3) {
+                var text = node.nodeValue;
+                // Remplacer les mots dans la liste par le mot de remplacement
+                for (var k = 0; k < words.length; k++) {
+                    var regex = new RegExp(words[k], "g");
+                    text = text.replace(regex, replacement);
+                }
+                // Mettre à jour le nœud avec le nouveau texte
+                if (text !== node.nodeValue) {
+                    element.replaceChild(document.createTextNode(text), node);
+                }
+            }
+        }
+    }
+}
+
+function grosMots()
