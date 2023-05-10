@@ -9,15 +9,13 @@
         "48": "icons/48x48.png",
         "128": "icons/128x128.png"
     },
-
     "action": {
         "default_popup": "popup.html"
     },
-    
     "content_scripts": [
         {
             "js": [
-                "content2.js"
+                "content.js"
             ],
             "matches": [
                 "<all_urls>"
@@ -32,7 +30,7 @@
         "scripting",
         "storage"
     ],
-    "host_permissions" :[
+    "host_permissions": [
         "<all_urls>"
     ],
     "content_security_policy": {

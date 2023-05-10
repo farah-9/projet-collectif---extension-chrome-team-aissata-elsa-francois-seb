@@ -50,79 +50,82 @@ function unlovedLetters() {
 }
 
 function grosMots() {
-    // La liste de mots à remplacer
-    var words = ["Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête", "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce", "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer", "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage", "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette", "tapette", "tebé", "ta race"];
+    const words = [
+        "Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête",
+        "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce",
+        "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer",
+        "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage",
+        "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette",
+        "tapette", "tebé", "ta race"
+    ];
+    const replacement = "****";
 
-    // Le mot de remplacement
-    var replacement = "Oups gros mot";
+    const elements = document.getElementsByTagName("*");
 
-    // Récupérer tous les éléments HTML dans la page
-    var elements = document.getElementsByTagName("*");
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        const childNodes = element.childNodes;
+        const childNodesLength = childNodes.length;
 
-    // Parcourir chaque élément et son texte pour trouver les mots à remplacer
-    for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-        for (var j = 0; j < element.childNodes.length; j++) {
-            var node = element.childNodes[j];
-            // Vérifier si le nœud est un élément de texte
-            if (node.nodeType === 3) {
-                var text = node.nodeValue;
-                // Remplacer les mots dans la liste par le mot de remplacement
-                for (var k = 0; k < words.length; k++) {
-                    var regex = new RegExp(words[k], "g");
+        for (let j = 0; j < childNodesLength; j++) {
+            const node = childNodes[j];
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                let text = node.nodeValue;
+
+                for (let k = 0; k < words.length; k++) {
+                    const regex = new RegExp(words[k], "g");
                     text = text.replace(regex, replacement);
                 }
-                // Mettre à jour le nœud avec le nouveau texte
+
                 if (text !== node.nodeValue) {
-                    element.replaceChild(document.createTextNode(text), node);
+                    const newNode = document.createTextNode(text);
+                    element.replaceChild(newNode, node);
                 }
             }
         }
     }
 }
 
+
 function visibility() {
-    let elements = document.querySelectorAll("*");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.fontFamily = "Arial";
-        elements[i].style.fontSize = "20px";
-        elements[i].style.backgroundColor = "white"
-        elements[i].style.color = "#000000"
-        if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
-            elements[i].style.fontSize = "40px";
-        }
-        if (elements[i].tagName === "SPAN") {
-            elements[i].style.fontSize = "22px";
-        }
-        if (elements[i].tagName === "LI") {
-            elements[i].style.fontSize = "28px";
-        }
-        if (elements[i].classList.length > 0) {
-            elements[i].style.fontSize = "22px";
-        }
-    }
+    const elements = document.querySelectorAll("*");
+    elements.forEach((element) => {
+        element.style.fontFamily = "Arial";
+        element.style.backgroundColor = "white";
+        element.style.color = "#000000";
 
-    let elem = document.querySelectorAll("[id]");
-    for (let i = 0; i < elem.length; i++) {
-        elem[i].style.fontSize = "28px";
-    }
+        if (element.tagName.startsWith("H")) {
+            element.style.fontSize = "40px";
+        } else if (element.tagName === "SPAN") {
+            element.style.fontSize = "22px";
+        } else if (element.tagName === "LI" || element.classList.length > 0) {
+            element.style.fontSize = "28px";
+        }
+    });
 
-    let attributes = document.querySelectorAll("a[href]");
-    for (let i = 0; i < attributes.length; i++) {
-        attributes[i].style.fontSize = "25px";
-    }
+    const elem = document.querySelectorAll("[id]");
+    elem.forEach((element) => {
+        element.style.fontSize = "28px";
+    });
 
-    let allParagraph = document.querySelectorAll("p");
-    for (let i = 0; i < allParagraph.length; i++) {
-        allParagraph[i].style.fontSize = "25px";
-    }
+    const attributes = document.querySelectorAll("a[href]");
+    attributes.forEach((element) => {
+        element.style.fontSize = "25px";
+    });
 
-    let links = document.querySelectorAll("a");
-    for (let i = 0; i < links.length; i++) {
-        links[i].style.color = "blue";
-        links[i].style.textDecoration = "underline";
-    }
+    const paragraphs = document.querySelectorAll("p");
+    paragraphs.forEach((element) => {
+        element.style.fontSize = "25px";
+    });
+
+    const links = document.querySelectorAll("a");
+    links.forEach((element) => {
+        element.style.color = "blue";
+        element.style.textDecoration = "underline";
+    });
 }
+
 
 chrome.storage.onChanged.addListener(() => {
     chrome.storage.local.get(["dyslexie"]).then((result) => {

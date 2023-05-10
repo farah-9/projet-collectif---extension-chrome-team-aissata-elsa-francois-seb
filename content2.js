@@ -50,125 +50,122 @@ function unlovedLetters() {
 }
 
 function grosMots() {
-    // La liste de mots à remplacer
-    var words = ["Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête", "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce", "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer", "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage", "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette", "tapette", "tebé", "ta race"];
+    const words = [
+        "Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête",
+        "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce",
+        "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer",
+        "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage",
+        "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette",
+        "tapette", "tebé", "ta race"
+    ];
+    const replacement = "*****";
 
-    // Le mot de remplacement
-    var replacement = "Oups gros mot";
+    const elements = document.getElementsByTagName("*");
 
-    // Récupérer tous les éléments HTML dans la page
-    var elements = document.getElementsByTagName("*");
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        const childNodes = element.childNodes;
+        const childNodesLength = childNodes.length;
 
-    // Parcourir chaque élément et son texte pour trouver les mots à remplacer
-    for (var i = 0; i < elements.length; i++) {
-        var element = elements[i];
-        for (var j = 0; j < element.childNodes.length; j++) {
-            var node = element.childNodes[j];
-            // Vérifier si le nœud est un élément de texte
-            if (node.nodeType === 3) {
-                var text = node.nodeValue;
-                // Remplacer les mots dans la liste par le mot de remplacement
-                for (var k = 0; k < words.length; k++) {
-                    var regex = new RegExp(words[k], "g");
+        for (let j = 0; j < childNodesLength; j++) {
+            const node = childNodes[j];
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                let text = node.nodeValue;
+
+                for (let k = 0; k < words.length; k++) {
+                    const regex = new RegExp(words[k], "g");
                     text = text.replace(regex, replacement);
                 }
-                // Mettre à jour le nœud avec le nouveau texte
+
                 if (text !== node.nodeValue) {
-                    element.replaceChild(document.createTextNode(text), node);
+                    const newNode = document.createTextNode(text);
+                    element.replaceChild(newNode, node);
                 }
             }
         }
     }
 }
 
-function visibility() {
-    let elements = document.querySelectorAll("*");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].style.fontFamily = "Arial";
-        elements[i].style.fontSize = "20px";
-        elements[i].style.backgroundColor = "white"
-        elements[i].style.color = "#000000"
-        if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
-            elements[i].style.fontSize = "40px";
-        }
-        if (elements[i].tagName === "SPAN") {
-            elements[i].style.fontSize = "22px";
-        }
-        if (elements[i].tagName === "LI") {
-            elements[i].style.fontSize = "28px";
-        }
-        if (elements[i].classList.length > 0) {
-            elements[i].style.fontSize = "22px";
-        }
-    }
 
-    let elem = document.querySelectorAll("[id]");
-    for (let i = 0; i < elem.length; i++) {
-        elem[i].style.fontSize = "28px";
+function lens() {
+    const elements = document.querySelectorAll(
+        "h1, h2, h3, h4, h5, h6, span, cite, th, td, img"
+    );
+    function addMouseOverEvent(element) {
+        element.addEventListener("mouseover", function () {
+            this.style.transform = "scale(1.5)";
+        });
     }
+    function addMouseOutEvent(element) {
+        element.addEventListener("mouseout", function () {
+            this.style.transform = "scale(1)";
+        });
+    }
+    elements.forEach(function (element) {
+        addMouseOverEvent(element);
+        addMouseOutEvent(element);
+    });
 
-    let attributes = document.querySelectorAll("a[href]");
-    for (let i = 0; i < attributes.length; i++) {
-        attributes[i].style.fontSize = "25px";
-    }
+    const attributes = document.querySelectorAll("a[href]");
+    attributes.forEach(function (attribute) {
+        addMouseOverEvent(attribute);
+        addMouseOutEvent(attribute);
+    });
 
-    let allParagraph = document.querySelectorAll("p");
-    for (let i = 0; i < allParagraph.length; i++) {
-        allParagraph[i].style.fontSize = "25px";
-    }
+    const allParagraph = document.querySelectorAll("p");
 
-    let links = document.querySelectorAll("a");
-    for (let i = 0; i < links.length; i++) {
-        links[i].style.color = "blue";
-        links[i].style.textDecoration = "underline";
-    }
+    allParagraph.forEach(function (paragraph) {
+        addMouseOverEvent(paragraph);
+        addMouseOutEvent(paragraph);
+    });
+
+    const links = document.querySelectorAll("a");
+    links.forEach(function (link) {
+        addMouseOverEvent(link);
+        addMouseOutEvent(link);
+    });
 }
-
-
-
-
-
-
 
 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.message === "updateSettings") {
-    chrome.storage.local.get(["dyslexie"]).then((result) => {
-    if (result.dyslexie == true) {
-    console.log("Dys ça marche")
-    dys();
+        chrome.storage.local.get(["dyslexie"]).then((result) => {
+            if (result.dyslexie == true) {
+                console.log("Dys ça marche")
+                dys();
+            }
+        });
+        chrome.storage.local.get(["dalto"]).then((result) => {
+            if (result.dalto == true) {
+                console.log("dalto ça marche")
+                daltonism();
+            }
+        });
+        chrome.storage.local.get(["bdpq"]).then((result) => {
+            if (result.bdpq == true) {
+                console.log("Unloved ça marche")
+                unlovedLetters();
+            }
+        });
+        chrome.storage.local.get(["vulgarite"]).then((result) => {
+            if (result.vulgarite == true) {
+                console.log("grosMots ça marche")
+                grosMots();
+            }
+        });
+        chrome.storage.local.get(["malVoyant"]).then((result) => {
+            if (result.malVoyant == true) {
+                console.log("malVoyant ça marche")
+                visibility();
+            }
+        });
+        chrome.storage.local.get(["loupe"]).then((result) => {
+            if (result.loupe == true) {
+                console.log("loupe ça marche")
+                lens();
+            }
+        })
     }
-    });
-    chrome.storage.local.get(["dalto"]).then((result) => {
-    if (result.dalto == true) {
-    console.log("dalto ça marche")
-    daltonism();
-    }
-    });
-    chrome.storage.local.get(["bdpq"]).then((result) => {
-    if (result.bdpq == true) {
-    console.log("Unloved ça marche")
-    unlovedLetters();
-    }
-    });
-    chrome.storage.local.get(["vulgarite"]).then((result) => {
-    if (result.vulgarite == true) {
-    console.log("grosMots ça marche")
-    grosMots();
-    }
-    });
-    chrome.storage.local.get(["malVoyant"]).then((result) => {
-    if (result.malVoyant == true) {
-    console.log("malVoyant ça marche")
-    visibility();
-    }
-    });
-    // chrome.storage.local.get(["loupe"]).then((result) => {
-    // if (result.loupe == true) {
-    // console.log("loupe ça marche")
-    // grosMots();
-    // }
-    // })
-    }
-    });
+});
