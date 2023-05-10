@@ -5,10 +5,10 @@ function dys() {
     for (let i = 0; i < elements.length; i++) {
         elements[i].style.fontFamily = "Arial";
         elements[i].style.color = "#2E2E2E";
-        elements[i].style.backgroundColor = "#FFFFCC"
+        elements[i].style.backgroundColor = "#ffffe0"
         // Vérifie et modifie si la taille de police est inférieure à 14pt
-        if (parseFloat(getComputedStyle(elements[i]).fontSize) < 14) {
-            elements[i].style.fontSize = "14pt";
+        if (parseFloat(getComputedStyle(elements[i]).fontSize) < 16) {
+            elements[i].style.fontSize = "16pt";
         } else {
             elements[i].style.fontSize = getComputedStyle(elements[i]).fontSize;
         }
@@ -38,7 +38,7 @@ function daltonism() {
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
-    let paragraphs = document.querySelectorAll("p");
+    let paragraphs = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6");
     // Parcourt tous les éléments et ajoute un style CSS pour mettre en gras les lettres b, p, q et d
     for (let i = 0; i < paragraphs.length; i++) {
         let text = paragraphs[i].textContent;
@@ -87,46 +87,25 @@ function grosMots() {
     }
 }
 
-
 function lens() {
-    const elements = document.querySelectorAll(
-        "h1, h2, h3, h4, h5, h6, span, cite, th, td, img"
-    );
-    function addMouseOverEvent(element) {
-        element.addEventListener("mouseover", function () {
-            this.style.transform = "scale(1.5)";
-        });
-    }
-    function addMouseOutEvent(element) {
-        element.addEventListener("mouseout", function () {
-            this.style.transform = "scale(1)";
-        });
-    }
-    elements.forEach(function (element) {
-        addMouseOverEvent(element);
-        addMouseOutEvent(element);
+    // Écouteur d'événement pour détecter le passage de la souris sur un élément
+    document.addEventListener('mouseover', function (event) {
+        // Vérifie si l'élément survolé est un élément de la page (et non l'extension elle-même)
+        if (event.target !== document.documentElement) {
+            // Applique une transformation d'agrandissement à l'élément
+            event.target.style.transform = 'scale(1.5)';
+        }
     });
 
-    const attributes = document.querySelectorAll("a[href]");
-    attributes.forEach(function (attribute) {
-        addMouseOverEvent(attribute);
-        addMouseOutEvent(attribute);
-    });
-
-    const allParagraph = document.querySelectorAll("p");
-
-    allParagraph.forEach(function (paragraph) {
-        addMouseOverEvent(paragraph);
-        addMouseOutEvent(paragraph);
-    });
-
-    const links = document.querySelectorAll("a");
-    links.forEach(function (link) {
-        addMouseOverEvent(link);
-        addMouseOutEvent(link);
+    // Écouteur d'événement pour détecter la sortie de la souris d'un élément
+    document.addEventListener('mouseout', function (event) {
+        // Vérifie si l'élément n'est pas l'extension elle-même
+        if (event.target !== document.documentElement) {
+            // Réinitialise la transformation de l'élément à sa taille normale
+            event.target.style.transform = 'scale(1)';
+        }
     });
 }
-
 
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {

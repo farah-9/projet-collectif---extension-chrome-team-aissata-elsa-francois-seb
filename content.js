@@ -58,7 +58,7 @@ function grosMots() {
         "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette",
         "tapette", "tebé", "ta race"
     ];
-    const replacement = "****";
+    const replacement = "*****";
 
     const elements = document.getElementsByTagName("*");
 
