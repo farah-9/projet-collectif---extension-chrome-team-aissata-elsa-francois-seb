@@ -151,3 +151,30 @@ chrome.storage.onChanged.addListener(() => {
         }
     })
 })
+
+chrome.storage.onChanged.addListener(() => {
+    chrome.storage.local.get(["dyslexie"]).then((result) => {
+        if (result.dyslexie == true) {
+            console.log("Dys ça marche")
+            dys();
+        }
+    });
+    chrome.storage.local.get(["dalto"]).then((result) => {
+        if (result.dalto == true) {
+            console.log("dalto ça marche")
+            daltonism();
+        }
+    })
+    chrome.storage.local.get(["bdpq"]).then((result) => {
+        if (result.bdpq == true) {
+            console.log("Unloved ça marche")
+            unlovedLetters();
+        }
+    })
+    chrome.storage.local.get(["grosMots"]).then((result) => {
+        if (result.grosMots == true) {
+            console.log("grosMots ça marche")
+            grosMots();
+        }
+    })
+})
