@@ -1,0 +1,250 @@
+function dys() {
+    // Sélectionne tous les éléments de la page
+    let elements = document.getElementsByTagName('*');
+    // Parcourt tous les éléments et applique un style
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].style.fontFamily = "Arial";
+        elements[i].style.color = "#2E2E2E";
+        elements[i].style.backgroundColor = "#FFFFCC"
+        // Vérifie et modifie si la taille de police est inférieure à 14pt
+        if (parseFloat(getComputedStyle(elements[i]).fontSize) < 14) {
+            elements[i].style.fontSize = "14pt";
+        } else {
+            elements[i].style.fontSize = getComputedStyle(elements[i]).fontSize;
+        }
+        // Gère l'espacement des mots, lettres, lignes..
+        elements[i].style.lineHeight = "2";
+        elements[i].style.letterSpacing = "1pt";
+        elements[i].style.wordSpacing = "2pt";
+        elements[i].style.textAlign = "left";
+        // Met en surbrillance les liens cliquables en bleu
+        if (elements[i].tagName === "A" && elements[i].hasAttribute("href")) {
+            elements[i].style.color = "blue";
+        }
+    }
+}
+
+/* setTimeout(() => {
+    dys();
+}, 1000); */
+
+
+function daltonism() {
+    let elements = document.querySelectorAll("*");
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i], elements[i].tagName);
+        if (elements[i].tagName === "IMG") {
+            elements[i].style = "filter: grayscale(100%);";
+        }
+        else {
+            elements[i].style.color = "#cdcd0d";
+        }
+    }
+}
+
+/* setTimeout(() => {
+    daltonism()
+}, 1000); */
+
+function unlovedLetters() {
+    // Sélectionne tous les éléments de la page
+    let paragraphs = document.querySelectorAll("p");
+    // Parcourt tous les éléments et ajoute un style CSS pour mettre en gras les lettres b, p, q et d
+    for (let i = 0; i < paragraphs.length; i++) {
+        let text = paragraphs[i].textContent;
+        let regex = /[bpqd]/gi;
+        if (regex.test(text)) {
+            paragraphs[i].innerHTML = text.replace(regex, '<span style="font-weight: bold;">$&</span>');
+        }
+    }
+}
+/* setTimeout(() => {
+    unlovedLetters()
+}, 1000); */
+
+function grosMots() {
+    // La liste de mots à remplacer
+    var words = ["Merde", "merde", "Putain", "putain", "abruti", "Abruti", "bête", " Bête", "bouffon", "Bouffon", "bouffonne", "Bouffonne", "garce", "chier", "Garce", "fils de pute", "Fils de pute", "casse couille", "niquer", "Niquer", "imbécile", "incapable", "Incapable", "salop", "Salope", "sauvage", "Sauvage", "teub", "Teub", "tocard", " Tocard", "ta gueule", "Ta gueule", "Tapette", "tapette", "tebé", "ta race"];
+
+    // Le mot de remplacement
+    var replacement = "Oups gros mot";
+
+    // Récupérer tous les éléments HTML dans la page
+    var elements = document.getElementsByTagName("*");
+
+    // Parcourir chaque élément et son texte pour trouver les mots à remplacer
+    for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        for (var j = 0; j < element.childNodes.length; j++) {
+            var node = element.childNodes[j];
+            // Vérifier si le nœud est un élément de texte
+            if (node.nodeType === 3) {
+                var text = node.nodeValue;
+                // Remplacer les mots dans la liste par le mot de remplacement
+                for (var k = 0; k < words.length; k++) {
+                    var regex = new RegExp(words[k], "g");
+                    text = text.replace(regex, replacement);
+                }
+                // Mettre à jour le nœud avec le nouveau texte
+                if (text !== node.nodeValue) {
+                    element.replaceChild(document.createTextNode(text), node);
+                }
+            }
+        }
+    }
+}
+
+setTimeout(() => {
+    grosMots()
+}, 1000); 
+
+
+
+function visibility() {
+    let elements = document.querySelectorAll("*");
+
+
+for (let i = 0; i < elements.length; i++) {
+    console.log(elements[i].tagName);
+    elements[i].style.fontFamily = "Arial";
+    elements[i].style.fontSize = "20px";
+elements[i].style.backgroundColor = "white"
+elements[i].style.color = "#000000"
+
+    if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
+        elements[i].style.fontSize = "40px";
+        
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+        
+    }
+
+    if (elements[i].tagName === "SPAN") {
+        elements[i].style.fontSize = "22px";
+        
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+    
+    }
+
+
+    if (elements[i].tagName === "CITE") {
+        elements[i].style.fontSize = "22px";
+        
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+    
+    }
+
+    if (elements[i].tagName === "LI") {
+        elements[i].style.fontSize = "28px";
+
+    }
+
+    if (elements[i].classList.length > 0) {
+        elements[i].style.fontSize = "22px";
+
+    }
+
+    if (elements[i].tagName === "TH") {
+        elements[i].style.fontSize = "28px";
+
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+    }
+
+    if (elements[i].tagName === "TD") {
+        elements[i].style.fontSize = "28px";
+
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+    }
+    if (elements[i].tagName === "IMG") {
+        elements[i].style.fontSize = "28px";
+
+        elements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        elements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+    }
+}
+}
+
+let elem = document.querySelectorAll("[id]");
+
+for (let i = 0; i < elem.length; i++) {
+    elem[i].style.fontSize = "28px";
+
+}
+
+let attributes = document.querySelectorAll("a[href]");
+
+for (let i = 0; i < attributes.length; i++) {
+    attributes[i].style.fontSize = "25px";
+    
+    attributes[i].addEventListener("mouseover", function() {
+        this.style.transform = "scale(1.5)";
+    });
+    attributes[i].addEventListener("mouseout", function() {
+        this.style.transform = "scale(1)";
+    });
+}
+
+let allParagraph = document.querySelectorAll("p");
+
+for (let i = 0; i < allParagraph.length; i++) {
+    allParagraph[i].style.fontSize = "25px";
+
+    allParagraph[i].addEventListener("mouseover", function() {
+        this.style.transform = "scale(1.5)";
+    });
+    allParagraph[i].addEventListener("mouseout", function() {
+        this.style.transform = "scale(1)";
+    });
+}
+
+let links = document.querySelectorAll("a");
+
+for (let i = 0; i < links.length; i++) {
+    links[i].style.color = "blue";
+    links[i].style.textDecoration = "underline";
+
+    links[i].addEventListener("mouseover", function() {
+        this.style.transform = "scale(1.5)";
+    });
+    links[i].addEventListener("mouseout", function() {
+        this.style.transform = "scale(1)";
+    });
+}
+
+
+
+
+visibility()

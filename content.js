@@ -24,15 +24,9 @@ function dys() {
     }
 }
 
-/* setTimeout(() => {
-    dys();
-}, 1000); */
-
-
 function daltonism() {
     let elements = document.querySelectorAll("*");
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i], elements[i].tagName);
         if (elements[i].tagName === "IMG") {
             elements[i].style = "filter: grayscale(100%);";
         }
@@ -41,10 +35,6 @@ function daltonism() {
         }
     }
 }
-
-/* setTimeout(() => {
-    daltonism()
-}, 1000); */
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
@@ -58,9 +48,6 @@ function unlovedLetters() {
         }
     }
 }
-/* setTimeout(() => {
-    unlovedLetters()
-}, 1000); */
 
 function grosMots() {
     // La liste de mots à remplacer
@@ -93,10 +80,6 @@ function grosMots() {
         }
     }
 }
-
-/* setTimeout(() => {
-    grosMots()
-}, 1000); */
 
 function visibility() {
     let elements = document.querySelectorAll("*");
@@ -142,35 +125,56 @@ function visibility() {
     }
 }
 
-
-
 chrome.storage.onChanged.addListener(() => {
-    chrome.storage.local.get(["dyslexie"]).then ((result) => {
-        //console.log(result.toggle)
-        if (result.dyslexie == true){
-            //console.log("ça marche")
+    chrome.storage.local.get(["dyslexie"]).then((result) => {
+        if (result.dyslexie == true) {
+            console.log("Dys ça marche")
             dys();
-        //     createLoupe();
-        //     suitsouris(evenement);
-        // } else {
-        //     //console.log("ça marche aussi");
-        //     noContrast();
-        //     deleteLoupe();
         }
     });
-    chrome.storage.local.get(["dalto"]).then ((result) => {
-        if (result.dalto == true){
-            daltonism()
+    chrome.storage.local.get(["dalto"]).then((result) => {
+        if (result.dalto == true) {
+            console.log("dalto ça marche")
+            daltonism();
         }
     })
-    chrome.storage.local.get(["bdpq"]).then ((result) => {
-        if (result.bdpq == true){
-            unlovedLetters()
+    chrome.storage.local.get(["bdpq"]).then((result) => {
+        if (result.bdpq == true) {
+            console.log("Unloved ça marche")
+            unlovedLetters();
         }
     })
-    chrome.storage.local.get(["grosMots"]).then ((result) => {
-        if (result.grosMots == true){
-            grosMots()
+    chrome.storage.local.get(["grosMots"]).then((result) => {
+        if (result.grosMots == true) {
+            console.log("grosMots ça marche")
+            grosMots();
+        }
+    })
+})
+
+chrome.storage.onChanged.addListener(() => {
+    chrome.storage.local.get(["dyslexie"]).then((result) => {
+        if (result.dyslexie == true) {
+            console.log("Dys ça marche")
+            dys();
+        }
+    });
+    chrome.storage.local.get(["dalto"]).then((result) => {
+        if (result.dalto == true) {
+            console.log("dalto ça marche")
+            daltonism();
+        }
+    })
+    chrome.storage.local.get(["bdpq"]).then((result) => {
+        if (result.bdpq == true) {
+            console.log("Unloved ça marche")
+            unlovedLetters();
+        }
+    })
+    chrome.storage.local.get(["grosMots"]).then((result) => {
+        if (result.grosMots == true) {
+            console.log("grosMots ça marche")
+            grosMots();
         }
     })
 })
