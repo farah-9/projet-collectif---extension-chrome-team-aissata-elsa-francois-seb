@@ -17,7 +17,7 @@
     "content_scripts": [
         {
             "js": [
-                "content.js"
+                "content2.js"
             ],
             "matches": [
                 "<all_urls>"

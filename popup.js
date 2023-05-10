@@ -1,41 +1,12 @@
-// const popup = document.getElementById("popup");
-// const form = document.getElementById("options-form");
-// const submitBtn = document.getElementById("submit-btn");
-// const cancelBtn = document.getElementById("cancel-btn");
-const vulgarite = document.getElementById('grosMots');
-const dalto = document.getElementById('dalto');
-const dyslexie = document.getElementById('dyslexie');
-const bdpq = document.getElementById('bdpq');
-const malVoyant = document.getElementById('malVoyant');
-const loupe = document.getElementById('loupe');
 
-// Masque la pop-up lorsque l'utilisateur clique sur le bouton "Valider"
-// submitBtn.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   popup.style.display = "none";
-// });
+const vulgarite = document.getElementById('#grosMots');
+const dalto = document.getElementById('#dalto');
+const dyslexie = document.getElementById('#dyslexie');
+const bdpq = document.getElementById('#bdpq');
+const malVoyant = document.getElementById('#malVoyant');
+const loupe = document.getElementById('#loupe');
 
-// Masque la pop-up lorsque l'utilisateur clique sur le bouton "Annuler"
-// cancelBtn.addEventListener("click", () => {
-//   popup.style.display = "none";
-// });
 
-//Lance les options cochées après validation
-// form.addEventListener("submit", () => {
-  // if(vulgarite.checked){};
-  // if (dalto.checked) {
-  //   setTimeout(() => {
-  //     daltonism();
-  //   }, 1000)
-  // };
-  // if (dyslexie.checked) {
-  //   setTimeout(() => {
-  //     dys();
-  //   }, 1000)
-  // }
-  // if(bdpq.checked) {};
-  // if(malVoyant.checked) { }
-// })
 
 document.addEventListener('DOMContentLoaded', function (){  
   //on écoute le bouton pour créer l'objet
