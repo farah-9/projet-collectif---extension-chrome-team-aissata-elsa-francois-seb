@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-
 });
 
 ; //Retourne true si la case est cochée, false sinon.

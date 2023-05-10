@@ -124,6 +124,7 @@ function visibility() {
     }
 }
 
+
 chrome.storage.onChanged.addListener(() => {
     chrome.storage.local.get(["dyslexie"]).then((result) => {
         if (result.dyslexie == true) {
