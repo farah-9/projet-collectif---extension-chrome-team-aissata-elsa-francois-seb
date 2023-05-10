@@ -24,15 +24,9 @@ function dys() {
     }
 }
 
-/* setTimeout(() => {
-    dys();
-}, 1000); */
-
-
 function daltonism() {
     let elements = document.querySelectorAll("*");
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i], elements[i].tagName);
         if (elements[i].tagName === "IMG") {
             elements[i].style = "filter: grayscale(100%);";
         }
@@ -41,10 +35,6 @@ function daltonism() {
         }
     }
 }
-
-/* setTimeout(() => {
-    daltonism()
-}, 1000); */
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
@@ -58,9 +48,6 @@ function unlovedLetters() {
         }
     }
 }
-/* setTimeout(() => {
-    unlovedLetters()
-}, 1000); */
 
 function grosMots() {
     // La liste de mots à remplacer
@@ -94,74 +81,73 @@ function grosMots() {
     }
 }
 
-setTimeout(() => {
-    grosMots()
-}, 1000); 
-
-
-
 function visibility() {
     let elements = document.querySelectorAll("*");
-
-    for (let i = 0; i < allElements.length; i++) {
-        allElements[i].addEventListener("mouseover", function() {
-            this.style.transform = "scale(1.5)";
-        });
-        allElements[i].addEventListener("mouseout", function() {
-            this.style.transform = "scale(1)";
-        });
+    for (let i = 0; i < elements.length; i++) {
+        console.log(elements[i].tagName);
+        elements[i].style.fontFamily = "Arial";
+        elements[i].style.fontSize = "20px";
+        elements[i].style.backgroundColor = "white"
+        elements[i].style.color = "#000000"
+        if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
+            elements[i].style.fontSize = "40px";
+        }
+        if (elements[i].tagName === "SPAN") {
+            elements[i].style.fontSize = "22px";
+        }
+        if (elements[i].tagName === "LI") {
+            elements[i].style.fontSize = "28px";
+        }
+        if (elements[i].classList.length > 0) {
+            elements[i].style.fontSize = "22px";
+        }
     }
 
-for (let i = 0; i < elements.length; i++) {
-    console.log(elements[i].tagName);
-    elements[i].style.fontFamily = "Arial";
-    elements[i].style.fontSize = "20px";
-elements[i].style.backgroundColor = "white"
-elements[i].style.color = "#000000"
-
-    if (elements[i].tagName === "H1" || elements[i].tagName === "H2" || elements[i].tagName === "H3" || elements[i].tagName === "H4" || elements[i].tagName === "H5" || elements[i].tagName === "H6") {
-        elements[i].style.fontSize = "40px";
+    let elem = document.querySelectorAll("[id]");
+    for (let i = 0; i < elem.length; i++) {
+        elem[i].style.fontSize = "28px";
     }
 
-    if (elements[i].tagName === "SPAN") {
-        elements[i].style.fontSize = "22px";
+    let attributes = document.querySelectorAll("a[href]");
+    for (let i = 0; i < attributes.length; i++) {
+        attributes[i].style.fontSize = "25px";
     }
 
-    if (elements[i].tagName === "LI") {
-        elements[i].style.fontSize = "28px";
+    let allParagraph = document.querySelectorAll("p");
+    for (let i = 0; i < allParagraph.length; i++) {
+        allParagraph[i].style.fontSize = "25px";
     }
 
-    if (elements[i].classList.length > 0) {
-        elements[i].style.fontSize = "22px";
+    let links = document.querySelectorAll("a");
+    for (let i = 0; i < links.length; i++) {
+        links[i].style.color = "blue";
+        links[i].style.textDecoration = "underline";
     }
 }
-let elem = document.querySelectorAll("[id]");
 
-for (let i = 0; i < elem.length; i++) {
-    elem[i].style.fontSize = "28px";
-}
-
-let attributes = document.querySelectorAll("a[href]");
-
-for (let i = 0; i < attributes.length; i++) {
-    attributes[i].style.fontSize = "25px";
-}
-
-let allParagraph = document.querySelectorAll("p");
-
-for (let i = 0; i < allParagraph.length; i++) {
-    allParagraph[i].style.fontSize = "25px";
-}
-
-
-let links = document.querySelectorAll("*");
-
-for (let i = 0; i < links.length; i++) {
-    links[i].style.color = "blue";
-    links[i].style.textDecoration = "underline";
-
-}
-
-}
-visibility();
-
+chrome.storage.onChanged.addListener(() => {
+    chrome.storage.local.get(["dyslexie"]).then((result) => {
+        if (result.dyslexie == true) {
+            console.log("Dys ça marche")
+            dys();
+        }
+    });
+    chrome.storage.local.get(["dalto"]).then((result) => {
+        if (result.dalto == true) {
+            console.log("dalto ça marche")
+            daltonism();
+        }
+    })
+    chrome.storage.local.get(["bdpq"]).then((result) => {
+        if (result.bdpq == true) {
+            console.log("Unloved ça marche")
+            unlovedLetters();
+        }
+    })
+    chrome.storage.local.get(["grosMots"]).then((result) => {
+        if (result.grosMots == true) {
+            console.log("grosMots ça marche")
+            grosMots();
+        }
+    })
+})
