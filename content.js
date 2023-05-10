@@ -84,7 +84,6 @@ function grosMots() {
 function visibility() {
     let elements = document.querySelectorAll("*");
     for (let i = 0; i < elements.length; i++) {
-        console.log(elements[i].tagName);
         elements[i].style.fontFamily = "Arial";
         elements[i].style.fontSize = "20px";
         elements[i].style.backgroundColor = "white"
@@ -137,44 +136,29 @@ chrome.storage.onChanged.addListener(() => {
             console.log("dalto ça marche")
             daltonism();
         }
-    })
+    });
     chrome.storage.local.get(["bdpq"]).then((result) => {
         if (result.bdpq == true) {
             console.log("Unloved ça marche")
             unlovedLetters();
-        }
-    })
-    chrome.storage.local.get(["grosMots"]).then((result) => {
-        if (result.grosMots == true) {
-            console.log("grosMots ça marche")
-            grosMots();
-        }
-    })
-})
-
-chrome.storage.onChanged.addListener(() => {
-    chrome.storage.local.get(["dyslexie"]).then((result) => {
-        if (result.dyslexie == true) {
-            console.log("Dys ça marche")
-            dys();
         }
     });
-    chrome.storage.local.get(["dalto"]).then((result) => {
-        if (result.dalto == true) {
-            console.log("dalto ça marche")
-            daltonism();
-        }
-    })
-    chrome.storage.local.get(["bdpq"]).then((result) => {
-        if (result.bdpq == true) {
-            console.log("Unloved ça marche")
-            unlovedLetters();
-        }
-    })
-    chrome.storage.local.get(["grosMots"]).then((result) => {
-        if (result.grosMots == true) {
+    chrome.storage.local.get(["vulgarite"]).then((result) => {
+        if (result.vulgarite == true) {
             console.log("grosMots ça marche")
             grosMots();
         }
+    });
+    chrome.storage.local.get(["malVoyant"]).then((result) => {
+        if (result.malVoyant == true) {
+            console.log("malVoyant ça marche")
+            visibility();
+        }
     })
+    // chrome.storage.local.get(["loupe"]).then((result) => {
+    //     if (result.loupe == true) {
+    //         console.log("loupe ça marche")
+    //         grosMots();
+    //     }
+    // })
 })

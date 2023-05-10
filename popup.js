@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function (){
   chrome.storage.local.set({vulgarite: false});
   chrome.storage.local.set({malVoyant: false});
   chrome.storage.local.set({loupe: false});
+  
   function onclick(){
       //changement de la valeur de "toggle", pour pouvoir écouter le changement dans appOn.js
 
