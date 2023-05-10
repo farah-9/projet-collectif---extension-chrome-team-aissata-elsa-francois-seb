@@ -103,6 +103,15 @@ setTimeout(() => {
 function visibility() {
     let elements = document.querySelectorAll("*");
 
+    for (let i = 0; i < allElements.length; i++) {
+        allElements[i].addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.5)";
+        });
+        allElements[i].addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+    }
+
 for (let i = 0; i < elements.length; i++) {
     console.log(elements[i].tagName);
     elements[i].style.fontFamily = "Arial";
@@ -145,37 +154,14 @@ for (let i = 0; i < allParagraph.length; i++) {
 }
 
 
-let links = document.querySelectorAll("a");
+let links = document.querySelectorAll("*");
 
 for (let i = 0; i < links.length; i++) {
     links[i].style.color = "blue";
     links[i].style.textDecoration = "underline";
-}
 
 }
-visibility()
 
-document.addEventListener('keydown', function(event) {
-    if (event.defaultPrevented) {
-      return; // La touche a déjà été traitée
-    }
+}
+visibility();
 
-    switch (event.key) {
-    case 'ArrowDown':
-        // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers le bas
-        break;
-    case 'ArrowUp':
-        // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers le haut
-        break;
-    case 'ArrowLeft':
-        // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers la gauche
-        break;
-    case 'ArrowRight':
-        // Faire quelque chose lorsque l'utilisateur appuie sur la flèche vers la droite
-        break;
-    default:
-        return; // Ne rien faire si la touche n'est pas utilisée pour la navigation
-    }
-
-    event.preventDefault();
-}, true);
