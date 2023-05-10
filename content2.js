@@ -143,8 +143,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         chrome.storage.local.get(["loupe"]).then((result) => {
             if (result.loupe == true) {
                 console.log("loupe ça marche")
-                lens();
+                visibility();
             }
-        })
+        });
     }
 });
