@@ -5,10 +5,10 @@ function dys() {
     for (let i = 0; i < elements.length; i++) {
         elements[i].style.fontFamily = "Arial";
         elements[i].style.color = "#2E2E2E";
-        elements[i].style.backgroundColor = "#FFFFCC"
+        elements[i].style.backgroundColor = "#ffffe0"
         // Vérifie et modifie si la taille de police est inférieure à 14pt
-        if (parseFloat(getComputedStyle(elements[i]).fontSize) < 14) {
-            elements[i].style.fontSize = "14pt";
+        if (parseFloat(getComputedStyle(elements[i]).fontSize) < 16) {
+            elements[i].style.fontSize = "16pt";
         } else {
             elements[i].style.fontSize = getComputedStyle(elements[i]).fontSize;
         }
@@ -38,7 +38,7 @@ function daltonism() {
 
 function unlovedLetters() {
     // Sélectionne tous les éléments de la page
-    let paragraphs = document.querySelectorAll("p");
+    let paragraphs = document.querySelectorAll("p, h1, h2, h3, h4, h5, h6");
     // Parcourt tous les éléments et ajoute un style CSS pour mettre en gras les lettres b, p, q et d
     for (let i = 0; i < paragraphs.length; i++) {
         let text = paragraphs[i].textContent;
@@ -87,7 +87,6 @@ function grosMots() {
     }
 }
 
-
 function visibility() {
     const elements = document.querySelectorAll("*");
     elements.forEach((element) => {
@@ -126,6 +125,26 @@ function visibility() {
     });
 }
 
+function lens() {
+    // Écouteur d'événement pour détecter le passage de la souris sur un élément
+    document.addEventListener('mouseover', function (event) {
+        // Vérifie si l'élément survolé est un élément de la page (et non l'extension elle-même)
+        if (event.target !== document.documentElement) {
+            // Applique une transformation d'agrandissement à l'élément
+            event.target.style.transform = 'scale(1.5)';
+        }
+    });
+
+    // Écouteur d'événement pour détecter la sortie de la souris d'un élément
+    document.addEventListener('mouseout', function (event) {
+        // Vérifie si l'élément n'est pas l'extension elle-même
+        if (event.target !== document.documentElement) {
+            // Réinitialise la transformation de l'élément à sa taille normale
+            event.target.style.transform = 'scale(1)';
+        }
+    });
+}
+
 
 chrome.storage.onChanged.addListener(() => {
     chrome.storage.local.get(["dyslexie"]).then((result) => {
@@ -157,11 +176,11 @@ chrome.storage.onChanged.addListener(() => {
             console.log("malVoyant ça marche")
             visibility();
         }
-    })
+    });
     chrome.storage.local.get(["loupe"]).then((result) => {
         if (result.loupe == true) {
             console.log("loupe ça marche")
             lens();
         }
-    })
-})
+    });
+});
