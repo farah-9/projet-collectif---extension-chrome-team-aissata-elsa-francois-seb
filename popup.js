@@ -6,8 +6,6 @@ const bdpq = document.getElementById('#bdpq');
 const malVoyant = document.getElementById('#malVoyant');
 const loupe = document.getElementById('#loupe');
 
-
-
 document.addEventListener('DOMContentLoaded', function () {
   //on écoute le bouton pour créer l'objet
   dalto.addEventListener('click', onclick);
@@ -24,22 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.local.set({ malVoyant: false });
   chrome.storage.local.set({ loupe: false });
 
+
   function onclick() {
-    //changement de la valeur de "toggle", pour pouvoir écouter le changement dans appOn.js
-
-    //on récupère la valeur de toggle et on lui asssigne une valeur true ou false
+    //on récupère la valeur de la checkbox et on lui asssigne une valeur true ou false
     chrome.storage.local.get(["dalto"]).then((result) => {
-      //console.log("le toggle est" + result.toggle);
-
       if (result.dalto == false) {
-        //console.log("toggle if =" + result.toggle);
         chrome.storage.local.set({ dalto: true })
-
       } else {
-        //console.log("toggle else = " + result.toggle);
         chrome.storage.local.set({ dalto: false })
-
-
       }
     });
     chrome.storage.local.get(["dyslexie"]).then((result) => {
@@ -79,5 +69,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
-
-; //Retourne true si la case est cochée, false sinon.
