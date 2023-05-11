@@ -1,71 +1,38 @@
-
-const vulgarite = document.getElementById('#grosMots');
-const dalto = document.getElementById('#dalto');
-const dyslexie = document.getElementById('#dyslexie');
-const bdpq = document.getElementById('#bdpq');
-const malVoyant = document.getElementById('#malVoyant');
-const loupe = document.getElementById('#loupe');
+const vulgarite = document.getElementById('grosMots');
+const dalto = document.getElementById('dalto');
+const dyslexie = document.getElementById('dyslexie');
+const bdpq = document.getElementById('bdpq');
+const malVoyant = document.getElementById('malVoyant');
+const loupe = document.getElementById('loupe');
 
 document.addEventListener('DOMContentLoaded', function () {
-  //on écoute le bouton pour créer l'objet
-  dalto.addEventListener('click', onclick);
-  dyslexie.addEventListener('click', onclick);
-  bdpq.addEventListener('click', onclick);
-  vulgarite.addEventListener('click', onclick);
-  malVoyant.addEventListener('click', onclick);
-  loupe.addEventListener('click', onclick);
-  //on enregistre la  clé toggle avec une valeur false dans le local storage
-  chrome.storage.local.set({ dalto: false });
-  chrome.storage.local.set({ dyslexie: false });
-  chrome.storage.local.set({ bdpq: false });
-  chrome.storage.local.set({ vulgarite: false });
-  chrome.storage.local.set({ malVoyant: false });
-  chrome.storage.local.set({ loupe: false });
+  //on écoute le changement de la valeur de chaque checkbox
+  dalto.addEventListener('change', function () {
+    chrome.storage.local.set({ dalto: dalto.checked });
+  });
+  dyslexie.addEventListener('change', function () {
+    chrome.storage.local.set({ dyslexie: dyslexie.checked });
+  });
+  bdpq.addEventListener('change', function () {
+    chrome.storage.local.set({ bdpq: bdpq.checked });
+  });
+  vulgarite.addEventListener('change', function () {
+    chrome.storage.local.set({ vulgarite: vulgarite.checked });
+  });
+  malVoyant.addEventListener('change', function () {
+    chrome.storage.local.set({ malVoyant: malVoyant.checked });
+  });
+  loupe.addEventListener('change', function () {
+    chrome.storage.local.set({ loupe: loupe.checked });
+  });
 
-
-  function onclick() {
-    //on récupère la valeur de la checkbox et on lui asssigne une valeur true ou false
-    chrome.storage.local.get(["dalto"]).then((result) => {
-      if (result.dalto == false) {
-        chrome.storage.local.set({ dalto: true })
-      } else {
-        chrome.storage.local.set({ dalto: false })
-      }
-    });
-    chrome.storage.local.get(["dyslexie"]).then((result) => {
-      if (result.dyslexie == false) {
-        chrome.storage.local.set({ dyslexie: true })
-      } else {
-        chrome.storage.local.set({ dyslexie: false })
-      }
-    });
-    chrome.storage.local.get(["bdpq"]).then((result) => {
-      if (result.bdpq == false) {
-        chrome.storage.local.set({ bdpq: true })
-      } else {
-        chrome.storage.local.set({ bdpq: false })
-      }
-    });
-    chrome.storage.local.get(["vulgarite"]).then((result) => {
-      if (result.vulgarite == false) {
-        chrome.storage.local.set({ vulgarite: true })
-      } else {
-        chrome.storage.local.set({ vulgarite: false })
-      }
-    });
-    chrome.storage.local.get(["malVoyant"]).then((result) => {
-      if (result.malVoyant == false) {
-        chrome.storage.local.set({ malVoyant: true })
-      } else {
-        chrome.storage.local.set({ malVoyant: false })
-      }
-    });
-    chrome.storage.local.get(["loupe"]).then((result) => {
-      if (result.loupe == false) {
-        chrome.storage.local.set({ loupe: true })
-      } else {
-        chrome.storage.local.set({ loupe: false })
-      }
-    });
-  }
+  //on enregistre la valeur de chaque checkbox dans le local storage
+  chrome.storage.local.set({
+    dalto: dalto.checked,
+    dyslexie: dyslexie.checked,
+    bdpq: bdpq.checked,
+    vulgarite: vulgarite.checked,
+    malVoyant: malVoyant.checked,
+    loupe: loupe.checked
+  });
 });
