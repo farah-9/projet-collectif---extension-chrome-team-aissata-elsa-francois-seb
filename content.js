@@ -183,4 +183,9 @@ chrome.storage.onChanged.addListener(() => {
             lens();
         }
     });
+    chrome.storage.local.get(["refresh"].then((result) => {
+        if (data.myData === 'enabled') {
+            window.location.reload(); // recharge la page
+        }
+    }))
 });

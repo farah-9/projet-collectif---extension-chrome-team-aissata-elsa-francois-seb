@@ -4,6 +4,7 @@ const dyslexie = document.getElementById('dyslexie');
 const bdpq = document.getElementById('bdpq');
 const malVoyant = document.getElementById('malVoyant');
 const loupe = document.getElementById('loupe');
+const refresh = document.getElementById('cancel-btn');
 
 document.addEventListener('DOMContentLoaded', function () {
   //on écoute le changement de la valeur de chaque checkbox
@@ -25,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
   loupe.addEventListener('change', function () {
     chrome.storage.local.set({ loupe: loupe.checked });
   });
+  refresh.addEventListener('click', function () {
+    chrome.storage.local.set({ myData: 'enabled' });
+  });
 
   //on enregistre la valeur de chaque checkbox dans le local storage
   chrome.storage.local.set({
@@ -33,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     bdpq: bdpq.checked,
     vulgarite: vulgarite.checked,
     malVoyant: malVoyant.checked,
-    loupe: loupe.checked
+    loupe: loupe.checked,
+    myData: 'enabled'
   });
 });
