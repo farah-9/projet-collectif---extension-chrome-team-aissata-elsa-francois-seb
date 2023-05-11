@@ -1,13 +1,11 @@
 {
     "name": "Web4All",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "manifest_version": 3,
     "description": "Une extension axée sur l'accessibilité",
-    "icons": {
-        "16": "icons/16x16.png",
-        "32": "icons/32x32.png",
-        "48": "icons/48x48.png",
-        "128": "icons/128x128.png"
+    "icons": { 
+        "48": "icons/icon.png",
+        "128": "icons/icon128.png" 
     },
     "action": {
         "default_popup": "popup.html"

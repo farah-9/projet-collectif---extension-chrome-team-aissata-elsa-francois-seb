@@ -158,10 +158,10 @@ chrome.storage.onChanged.addListener(() => {
             visibility();
         }
     })
-    // chrome.storage.local.get(["loupe"]).then((result) => {
-    //     if (result.loupe == true) {
-    //         console.log("loupe ça marche")
-    //         grosMots();
-    //     }
-    // })
+    chrome.storage.local.get(["loupe"]).then((result) => {
+        if (result.loupe == true) {
+            console.log("loupe ça marche")
+            lens();
+        }
+    })
 })
