@@ -1,4 +1,4 @@
-# ProjetExtensionNav---Aissata-Elsa-Francois-Seb
+# Projet Extension Navigateur---Aissata-Elsa-Francois-Seb
 
 Ce projet a été réalisé dans le cadre d'une collaboration collective pour créer une extension de navigateur. L'objectif de ce projet était de développer une solution innovante pour améliorer l'expérience de navigation web pour les personnes ayant un handicap visuel.
 
