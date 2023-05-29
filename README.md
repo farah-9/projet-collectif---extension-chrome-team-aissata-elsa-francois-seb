@@ -33,7 +33,7 @@ Tout au long du projet, nous avons dû faire face à des contraintes de gestion 
 L'une des contraintes majeures auxquelles nous avons été confrontés était d'assurer la compatibilité de l'extension avec différents navigateurs. Nous avons constaté que certaines fonctionnalités spécifiques à un navigateur ne fonctionnaient pas de la même manière sur d'autres navigateurs. Nous avons dû effectuer des tests approfondis et apporter des ajustements pour garantir que l'extension fonctionne de manière optimale sur les navigateurs ciblés, ce qui a nécessité du temps et des efforts supplémentaires.
 
                               
-                                                                # Que pourrions-nous accomplir en plus sur ce projet ?
+# Que pourrions-nous accomplir en plus sur ce projet ?
                                                                 
 - Nous aimerions créer une documentation claire et détaillée qui expliquera aux utilisateurs comment installer et utiliser l'extension, ainsi que ses fonctionnalités principales. 
 
